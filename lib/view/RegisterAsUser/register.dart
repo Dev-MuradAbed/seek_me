@@ -110,6 +110,18 @@ class _RegisterState extends State<Register> {
             SizedBox(height: 16,),
             TextWidget(hintText: "An OTP will be sent on given phone number for verification. Standard message and data rates apply."),
             SizedBox(height: 24.0),
+            ElevatedButtonWidget(onPressed: _register,text: 'Login/Sign up'),
+            SizedBox(height: 34,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [Expanded(child: Divider(color: Color(0xFF757575),thickness: 1)),
+                SizedBox(width: 10,),
+                Text('OR'),SizedBox(width: 10,),Expanded(child: Divider(color: Color(0xFF757575),thickness: 1))],
+            ),
+            SizedBox(height: 31,),
+            SocialElevatedButtonWidget(onPressed: (){}, text: 'Continue with Google',image: Image(image: AssetImage('assets/image/image 32.png')),),
+            SizedBox(height: 16,),
+            SocialElevatedButtonWidget(onPressed: (){}, text: 'Continue with Facebook',image: Image(image: AssetImage('assets/image/image 33.png')),)
 
           ],
         ),
