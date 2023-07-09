@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import '../../complainant/elevated_button_widget.dart';
-import '../../complainant/social_elevated_button_widget.dart';
-import '../../complainant/text_filed_widget.dart';
-import '../../complainant/text_widget.dart';
+import '../../components/elevated_button_widget.dart';
+import '../../components/social_elevated_button_widget.dart';
+import '../../components/text_filed_widget.dart';
+import '../../components/text_widget.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
