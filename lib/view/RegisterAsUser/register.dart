@@ -85,47 +85,50 @@ class _RegisterState extends State<Register> {
         padding: EdgeInsets.all(16.0),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Image(image: AssetImage('assets/image/Logo.png'),height: 28,width: 140),
-              SizedBox(height: 48,),
-              IntlPhoneField(
-                controller: _phoneController,
-                disableLengthCheck: true,
-                decoration: InputDecoration(
-                  hintText: 'Phone Number',
-                  hintStyle:TextStyle(color: Color(0xFF79747E)) ,
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(),
-                    borderRadius: BorderRadius.circular(12)
+          child: Padding(
+            padding: const EdgeInsets.only(top: 81),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image(image: AssetImage('assets/image/Logo.png'),height: 28,width: 140),
+                SizedBox(height: 48,),
+                IntlPhoneField(
+                  controller: _phoneController,
+                  disableLengthCheck: true,
+                  decoration: InputDecoration(
+                    hintText: 'Phone Number',
+                    hintStyle:TextStyle(color: Color(0xFF79747E)) ,
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(),
+                      borderRadius: BorderRadius.circular(12)
+                    ),
                   ),
+                  initialCountryCode: 'ps',
+                  onChanged: (phone) {
+                    print(phone.completeNumber);
+                  },
                 ),
-                initialCountryCode: 'ps',
-                onChanged: (phone) {
-                  print(phone.completeNumber);
-                },
-              ),
-              SizedBox(height: 16,),
-              TextFieldWidget(nameController: _referralController,hintText: 'Referral code (Optional)'),
-              SizedBox(height: 16,),
-              TextWidget(hintText: "An OTP will be sent on given phone number for verification. Standard message and data rates apply."),
-              SizedBox(height: 24.0),
-              ElevatedButtonWidget(onPressed: _register,text: 'Login/Sign up'),
-              SizedBox(height: 34,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [Expanded(child: Divider(color: Color(0xFF757575),thickness: 1)),
-                  SizedBox(width: 10,),
-                  Text('OR'),SizedBox(width: 10,),Expanded(child: Divider(color: Color(0xFF757575),thickness: 1))],
-              ),
-              SizedBox(height: 31,),
-              SocialElevatedButtonWidget(onPressed: (){}, text: 'Continue with Google',image: Image(image: AssetImage('assets/image/image 32.png')),),
-              SizedBox(height: 16,),
-              SocialElevatedButtonWidget(onPressed: (){}, text: 'Continue with Facebook',image: Image(image: AssetImage('assets/image/image 33.png')),)
+                SizedBox(height: 16,),
+                TextFieldWidget(nameController: _referralController,hintText: 'Referral code (Optional)'),
+                SizedBox(height: 16,),
+                TextWidget(hintText: "An OTP will be sent on given phone number for verification. Standard message and data rates apply."),
+                SizedBox(height: 24.0),
+                ElevatedButtonWidget(onPressed: _register,text: 'Login/Sign up'),
+                SizedBox(height: 34,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [Expanded(child: Divider(color: Color(0xFF757575),thickness: 1)),
+                    SizedBox(width: 10,),
+                    Text('OR'),SizedBox(width: 10,),Expanded(child: Divider(color: Color(0xFF757575),thickness: 1))],
+                ),
+                SizedBox(height: 31,),
+                SocialElevatedButtonWidget(onPressed: (){}, text: 'Continue with Google',image: Image(image: AssetImage('assets/image/image 32.png')),),
+                SizedBox(height: 16,),
+                SocialElevatedButtonWidget(onPressed: (){}, text: 'Continue with Facebook',image: Image(image: AssetImage('assets/image/image 33.png')),)
 
-            ],
+              ],
+            ),
           ),
         ),
       ),
