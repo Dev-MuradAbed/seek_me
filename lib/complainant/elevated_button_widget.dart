@@ -12,11 +12,13 @@ class ElevatedButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        padding: const EdgeInsets.all(
-          12,
+        padding: EdgeInsets.all(
+          height / 68.787,
         ),
         backgroundColor: Colors.white,
         side: const BorderSide(
@@ -26,14 +28,14 @@ class ElevatedButtonWidget extends StatelessWidget {
             ) // the color of the border
             ),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(height / 68.787),
         ),
       ),
       onPressed: _onPressed,
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 123,
-          vertical: 9,
+        padding: EdgeInsets.symmetric(
+          horizontal: width / 3.192,
+          vertical: height / 91.717,
         ),
         child: Text(_text),
       ),

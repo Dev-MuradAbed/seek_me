@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-import '../../companait/elevated_button_widget.dart';
-import '../../companait/social_elevated_button_widget.dart';
-import '../../companait/text_filed_widget.dart';
-import '../../companait/text_widget.dart';
+import '../../complainant/elevated_button_widget.dart';
+import '../../complainant/social_elevated_button_widget.dart';
+import '../../complainant/text_filed_widget.dart';
+import '../../complainant/text_widget.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
   @override
-  _RegisterState createState() => _RegisterState();
+  State<Register> createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
-  TextEditingController _phoneController = TextEditingController();
-  TextEditingController _referralController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _referralController = TextEditingController();
 
   @override
   void dispose() {
@@ -25,24 +25,22 @@ class _RegisterState extends State<Register> {
   }
 
   void _register() {
-    // Perform registration logic here
     String phone = _phoneController.text;
     String referral = _referralController.text;
 
-    // Validate the input fields
     if (phone.isEmpty || referral.isEmpty) {
       showDialog(
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('Please fill in all fields.'),
+            title: const Text('Error'),
+            content: const Text('Please fill in all fields.'),
             actions: [
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('OK'),
+                child: const Text('OK'),
               ),
             ],
           );
@@ -50,27 +48,21 @@ class _RegisterState extends State<Register> {
       );
       return;
     }
-
-    // Perform registration logic with the provided data
-    // ...
-
-    // Clear the input fields
     _phoneController.clear();
     _referralController.clear();
 
-    // Show success dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Success'),
-          content: Text('referral successful.'),
+          title: const Text('Success'),
+          content: const Text('referral successful.'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         );
@@ -80,28 +72,41 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(height / 51.59),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: const EdgeInsets.only(top: 81),
+            padding: EdgeInsets.only(top: height / 10.190),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image(image: AssetImage('assets/image/Logo.png'),height: 28,width: 140),
-                SizedBox(height: 48,),
+                Image(
+                    image: const AssetImage('assets/image/Logo.png'),
+                    height: height / 29.480,
+                    width: width / 2.805),
+                SizedBox(
+                  height: height / 17.196,
+                ),
                 IntlPhoneField(
                   controller: _phoneController,
                   disableLengthCheck: true,
                   decoration: InputDecoration(
                     hintText: 'Phone Number',
-                    hintStyle:TextStyle(color: Color(0xFF79747E)) ,
+                    hintStyle: const TextStyle(
+                      color: Color(0xFF79747E),
+                    ),
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(),
-                      borderRadius: BorderRadius.circular(12)
+                      borderSide: const BorderSide(
+                        color: Colors.deepPurple,
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        height / 68.787,
+                      ),
                     ),
                   ),
                   initialCountryCode: 'ps',
@@ -109,24 +114,62 @@ class _RegisterState extends State<Register> {
                     print(phone.completeNumber);
                   },
                 ),
-                SizedBox(height: 16,),
-                TextFieldWidget(nameController: _referralController,hintText: 'Referral code (Optional)'),
-                SizedBox(height: 16,),
-                TextWidget(hintText: "An OTP will be sent on given phone number for verification. Standard message and data rates apply."),
-                SizedBox(height: 24.0),
-                ElevatedButtonWidget(onPressed: _register,text: 'Login/Sign up'),
-                SizedBox(height: 34,),
+                SizedBox(
+                  height: height / 51.590,
+                ),
+                TextFieldWidget(
+                    nameController: _referralController,
+                    hintText: 'Referral code (Optional)'),
+                SizedBox(
+                  height: height / 51.590,
+                ),
+                const TextWidget(
+                    hintText:
+                        "An OTP will be sent on given phone number for verification.Standard message and data rates apply."),
+                SizedBox(
+                  height: height / 34.393,
+                ),
+                ElevatedButtonWidget(
+                    onPressed: _register, text: 'Login/Sign up'),
+                SizedBox(
+                  height: height / 24.278,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [Expanded(child: Divider(color: Color(0xFF757575),thickness: 1)),
-                    SizedBox(width: 10,),
-                    Text('OR'),SizedBox(width: 10,),Expanded(child: Divider(color: Color(0xFF757575),thickness: 1))],
+                  children: [
+                    const Expanded(
+                        child: Divider(color: Color(0xFF757575), thickness: 1)),
+                    SizedBox(
+                      width: width / 39.272,
+                    ),
+                    const Text('OR'),
+                    SizedBox(
+                      width: width / 39.272,
+                    ),
+                    const Expanded(
+                        child: Divider(color: Color(0xFF757575), thickness: 1))
+                  ],
                 ),
-                SizedBox(height: 31,),
-                SocialElevatedButtonWidget(onPressed: (){}, text: 'Continue with Google',image: Image(image: AssetImage('assets/image/image 32.png')),),
-                SizedBox(height: 16,),
-                SocialElevatedButtonWidget(onPressed: (){}, text: 'Continue with Facebook',image: Image(image: AssetImage('assets/image/image 33.png')),)
-
+                SizedBox(
+                  height: height / 26.627,
+                ),
+                SocialElevatedButtonWidget(
+                  onPressed: () {},
+                  text: 'Continue with Google',
+                  image: const Image(
+                    image: AssetImage('assets/image/image 32.png'),
+                  ),
+                ),
+                SizedBox(
+                  height: height / 51.590,
+                ),
+                SocialElevatedButtonWidget(
+                  onPressed: () {},
+                  text: 'Continue with Facebook',
+                  image: const Image(
+                    image: AssetImage('assets/image/image 33.png'),
+                  ),
+                )
               ],
             ),
           ),
@@ -135,5 +178,3 @@ class _RegisterState extends State<Register> {
     );
   }
 }
-
-
