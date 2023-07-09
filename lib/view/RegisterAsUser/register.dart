@@ -105,8 +105,9 @@ class _RegisterState extends State<Register> {
                 print(phone.completeNumber);
               },
             ),
-
-          ],
+            SizedBox(height: 16,),
+            TextFieldWidget(nameController: _referralController,hintText: 'Referral code (Optional)'),
+            ],
         ),
       ),
     );
