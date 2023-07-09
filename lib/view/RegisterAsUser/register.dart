@@ -93,6 +93,7 @@ class _RegisterState extends State<Register> {
                   height: height / 17.196,
                 ),
                 IntlPhoneField(
+                  textInputAction: TextInputAction.next,
                   controller: _phoneController,
                   disableLengthCheck: true,
                   decoration: InputDecoration(
@@ -120,6 +121,7 @@ class _RegisterState extends State<Register> {
                   height: height / 51.590,
                 ),
                 TextFieldWidget(
+                  textInputAction: TextInputAction.send,
                   nameController: _referralController,
                   hintText: 'Referral code (Optional)',
                 ),
