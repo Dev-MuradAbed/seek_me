@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:seek_me/view/RegisterAsUser/register.dart';
+
+import '/view/RegisterAsUser/register.dart';
 
 void main() {
   runApp(const MyApp());

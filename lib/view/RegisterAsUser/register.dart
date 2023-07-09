@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_field/phone_number.dart';
 
 import '../../components/elevated_button_widget.dart';
 import '../../components/social_elevated_button_widget.dart';
@@ -25,8 +26,8 @@ class _RegisterState extends State<Register> {
   }
 
   void _register() {
-    String phone = _phoneController.text;
-    String referral = _referralController.text;
+    final String phone = _phoneController.text;
+    final String referral = _referralController.text;
 
     if (phone.isEmpty || referral.isEmpty) {
       showDialog(
@@ -35,7 +36,7 @@ class _RegisterState extends State<Register> {
           return AlertDialog(
             title: const Text('Error'),
             content: const Text('Please fill in all fields.'),
-            actions: [
+            actions: <Widget>[
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -57,7 +58,7 @@ class _RegisterState extends State<Register> {
         return AlertDialog(
           title: const Text('Success'),
           content: const Text('referral successful.'),
-          actions: [
+          actions: <Widget>[
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
@@ -72,8 +73,8 @@ class _RegisterState extends State<Register> {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(height / 51.59),
@@ -83,8 +84,7 @@ class _RegisterState extends State<Register> {
             padding: EdgeInsets.only(top: height / 10.190),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: <Widget>[
                 Image(
                     image: const AssetImage('assets/image/Logo.png'),
                     height: height / 29.480,
@@ -98,7 +98,9 @@ class _RegisterState extends State<Register> {
                   decoration: InputDecoration(
                     hintText: 'Phone Number',
                     hintStyle: const TextStyle(
-                      color: Color(0xFF79747E),
+                      color: Color(
+                        0xFF79747E,
+                      ),
                     ),
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(
@@ -110,22 +112,23 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                   initialCountryCode: 'ps',
-                  onChanged: (phone) {
-                    print(phone.completeNumber);
+                  onChanged: (PhoneNumber phone) {
+                    // print(phone.completeNumber);
                   },
                 ),
                 SizedBox(
                   height: height / 51.590,
                 ),
                 TextFieldWidget(
-                    nameController: _referralController,
-                    hintText: 'Referral code (Optional)'),
+                  nameController: _referralController,
+                  hintText: 'Referral code (Optional)',
+                ),
                 SizedBox(
                   height: height / 51.590,
                 ),
                 const TextWidget(
                     hintText:
-                        "An OTP will be sent on given phone number for verification.Standard message and data rates apply."),
+                        'An OTP will be sent on given phone number for verification.Standard message and data rates apply.'),
                 SizedBox(
                   height: height / 34.393,
                 ),
@@ -136,7 +139,7 @@ class _RegisterState extends State<Register> {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
+                  children: <Widget>[
                     const Expanded(
                         child: Divider(color: Color(0xFF757575), thickness: 1)),
                     SizedBox(

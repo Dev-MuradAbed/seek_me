@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  const TextFieldWidget(
-      {super.key,
-      required TextEditingController nameController,
-      required String hintText})
-      : _nameController = nameController,
+  const TextFieldWidget({
+    required TextEditingController nameController,
+    required String hintText,
+    super.key,
+  })  : _nameController = nameController,
         _hintText = hintText;
 
   final TextEditingController _nameController;
@@ -13,7 +13,7 @@ class TextFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
+    final double height = MediaQuery.of(context).size.height;
     return TextField(
       controller: _nameController,
       decoration: InputDecoration(

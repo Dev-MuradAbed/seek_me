@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 
 class ElevatedButtonWidget extends StatelessWidget {
   const ElevatedButtonWidget({
-    super.key,
     required Function()? onPressed,
     required String text,
+    super.key,
   })  : _onPressed = onPressed,
         _text = text;
+
   final Function()? _onPressed;
   final String _text;
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    final double height = MediaQuery.of(context).size.height;
+    final double width = MediaQuery.of(context).size.width;
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         elevation: 0,
@@ -22,10 +23,9 @@ class ElevatedButtonWidget extends StatelessWidget {
         ),
         backgroundColor: Colors.white,
         side: const BorderSide(
-            width: 1, // the thickness
             color: Color(
-              0XFFE3E3E3,
-            ) // the color of the border
+          0XFFE3E3E3,
+        ) // the color of the border
             ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(height / 68.787),
