@@ -107,7 +107,11 @@ class _RegisterState extends State<Register> {
             ),
             SizedBox(height: 16,),
             TextFieldWidget(nameController: _referralController,hintText: 'Referral code (Optional)'),
-            ],
+            SizedBox(height: 16,),
+            TextWidget(hintText: "An OTP will be sent on given phone number for verification. Standard message and data rates apply."),
+            SizedBox(height: 24.0),
+
+          ],
         ),
       ),
     );
