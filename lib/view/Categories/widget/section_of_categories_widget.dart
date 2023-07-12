@@ -10,8 +10,7 @@ class SectionOfCategoriesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(Get.width);
-    print(Get.height);
+
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Padding(
