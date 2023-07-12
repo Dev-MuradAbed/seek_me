@@ -18,7 +18,7 @@ class CategoriesWidget extends StatelessWidget {
           spacing: Get.width/17.851,
           children:List<Widget>.generate(10, (int index) => GestureDetector(
             onTap: (){
-Get.to(SectionOfCategories());
+Get.to(() => SectionOfCategories());
             },
             child: Container(
               width: Get.width/2.394,

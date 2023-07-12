@@ -25,7 +25,7 @@ class SectionOfCategoriesWidget extends StatelessWidget {
               10,
               (int index) => GestureDetector(
                 onTap: () {
-                  Get.to(SectionOfCategories());
+                  Get.to(() => SectionOfCategories());
                 },
                 child: Container(
                   width: Get.width / 2.28,
