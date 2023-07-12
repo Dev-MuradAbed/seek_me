@@ -88,6 +88,38 @@ class _HomeViewState extends State<HomeView> {
       body: SafeArea(
         child: Stack(
           children: <Widget>[
+            SingleChildScrollView(
+              controller: _scrollController,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 50),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    // appBarWidget,
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    SearchTextFiled(),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    CarouselSlider(controller: controller,slidersPath: ['https://images.unsplash.com/photo-1607355739828-0bf365440db5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80','https://images.unsplash.com/photo-1607355739828-0bf365440db5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80','https://images.unsplash.com/photo-1607355739828-0bf365440db5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80','https://images.unsplash.com/photo-1607355739828-0bf365440db5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80',],),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    Center(
+                      child: ExpandingIndicator(
+                        controller: controller,
+                        count: 4,
+                        effect: const ExpandingDotsEffect(
+                            dotHeight: 6, dotWidth: 10),
+                      ),
+                    ),
+
+                  ],
+                ),
+              ),
+            ),
             appBarWidget,
           ],
         ),
@@ -95,5 +127,8 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
+
+
 
 
