@@ -174,53 +174,7 @@ class _HomeViewState extends State<HomeView> {
                     const SizedBox(
                       height: 16,
                     ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Wrap(
-                          spacing: 22,
-                          children: List<Widget>.generate(
-                              3,
-                              (int index) => Stack(
-                                    children: <Widget>[
-                                      Container(
-                                        width: 225,
-                                        height: 150,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(25),
-                                          image: const DecorationImage(
-                                              image: AssetImage(
-                                                  ImageAssets.hearImageTest),
-                                              fit: BoxFit.cover),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 225,
-                                        height: 150,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(25),
-                                            color: const Color.fromRGBO(
-                                                0, 0, 0, 0.2)),
-                                      ),
-                                      const Padding(
-                                        padding:
-                                            EdgeInsets.only(top: 125, left: 15),
-                                        child: Text(
-                                          'Hair services for men',
-                                          style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w700,
-                                              color: Colors.white),
-                                        ),
-                                      ),
-                                    ],
-                                  )),
-                        ),
-                      ),
-                    ),
+                    TrendingServicesSection(),
                     const SizedBox(
                       height: 190,
                     )
@@ -235,5 +189,6 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
 
 
