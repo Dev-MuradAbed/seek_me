@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
+
 import '../../index.dart';
 import '../../res/widgets/indicator_animation/index.dart';
 import 'widget_home/index.dart';
@@ -97,13 +96,13 @@ class _HomeViewState extends State<HomeView> {
                     const SizedBox(
                       height: 20,
                     ),
-                    SearchTextFiled(),
+                    const SearchTextFiled(),
                     const SizedBox(
                       height: 16,
                     ),
                     CarouselSlider(
                       controller: controller,
-                      slidersPath: [
+                      slidersPath: const <String>[
                         'https://images.unsplash.com/photo-1607355739828-0bf365440db5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80',
                         'https://images.unsplash.com/photo-1607355739828-0bf365440db5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80',
                         'https://images.unsplash.com/photo-1607355739828-0bf365440db5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1444&q=80',
@@ -137,7 +136,7 @@ class _HomeViewState extends State<HomeView> {
                     const SizedBox(
                       height: 16,
                     ),
-                    CategoriesSection(),
+                    const CategoriesSection(),
                     const SizedBox(
                       height: 16,
                     ),
@@ -162,7 +161,7 @@ class _HomeViewState extends State<HomeView> {
                     const SizedBox(
                       height: 14,
                     ),
-                    TopFreelancers(),
+                    const TopFreelancers(),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16),
                       child: Text(
@@ -174,7 +173,7 @@ class _HomeViewState extends State<HomeView> {
                     const SizedBox(
                       height: 16,
                     ),
-                    TrendingServicesSection(),
+                    const TrendingServicesSection(),
                     const SizedBox(
                       height: 190,
                     )
@@ -189,6 +188,3 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
-
-
-

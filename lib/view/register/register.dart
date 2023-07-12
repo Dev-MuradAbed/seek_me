@@ -6,7 +6,6 @@ import 'package:intl_phone_field/phone_number.dart';
 
 import '../../../index.dart';
 import '../../../view/OTP/components/index.dart';
-import '../../view_models/controller/register/register_view_model.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);

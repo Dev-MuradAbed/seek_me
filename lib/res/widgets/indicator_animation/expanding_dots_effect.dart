@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'index.dart';
 
-import 'indicator_effect.dart';
-import 'indicator_painter.dart';
+import 'index.dart';
 
 /// Holds painting configuration to be used by [ExpandingDotsPainter]
 class ExpandingDotsEffect extends BasicIndicatorEffect {
