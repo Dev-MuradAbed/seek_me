@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:seek_me/view/Categories/categories_view.dart';
 
 import '../../index.dart';
 
@@ -15,14 +16,14 @@ class MainWrapper extends StatelessWidget {
         controller: controller.pageController,
         physics: const BouncingScrollPhysics(),
         children: const <Widget>[
-          // HomeView(),
+          CategoriesView(),
           Scaffold(
             backgroundColor: Colors.red,
           ),
           Scaffold(
             backgroundColor: Colors.green,
           ),
-          // HomeView(),
+          HomeView(),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
