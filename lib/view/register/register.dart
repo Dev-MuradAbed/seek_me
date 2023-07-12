@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:intl_phone_field/countries.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
-import '../../components/elevated_button_widget.dart';
-import '../../components/social_elevated_button_widget.dart';
-import '../../components/text_filed_widget.dart';
-import '../../components/text_widget.dart';
+import '../../../index.dart';
+import '../../../view/OTP/components/index.dart';
+import '../../view_models/controller/register/register_view_model.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -15,61 +16,40 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  final TextEditingController _phoneController = TextEditingController();
-  final TextEditingController _referralController = TextEditingController();
-
-  @override
-  void dispose() {
-    _phoneController.dispose();
-    _referralController.dispose();
-    super.dispose();
-  }
-
-  void _register() {
-    final String phone = _phoneController.text;
-    final String referral = _referralController.text;
-
-    if (phone.isEmpty || referral.isEmpty) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('Error'),
-            content: const Text('Please fill in all fields.'),
-            actions: <Widget>[
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-      return;
-    }
-    _phoneController.clear();
-    _referralController.clear();
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Success'),
-          content: const Text('referral successful.'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  final RegisterViewModel registerVM = Get.put(RegisterViewModel());
+  // void _register() {
+  //   final String phone = registerVM.phoneController.value.text;
+  //   // final String mobileCode = registerVM.mobileCodeController.value.text;
+  //
+  //   if (phone.isEmpty) {
+  //     showDialog(
+  //       context: context,
+  //       builder: (BuildContext context) {
+  //         return AlertDialog(
+  //           title: const Text('Error'),
+  //           content: const Text('Please fill in all fields.'),
+  //           actions: <Widget>[
+  //             TextButton(
+  //               onPressed: () {
+  //                 Navigator.of(context).pop();
+  //               },
+  //               child: const Text('OK'),
+  //             ),
+  //           ],
+  //         );
+  //       },
+  //     );
+  //     return;
+  //   }
+  //   Navigator.of(context).push(
+  //     MaterialPageRoute(
+  //       builder: (BuildContext context) {
+  //     registerVM.registerApi();
+  //     return OTPScreen();
+  //   },
+  //   ),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +66,7 @@ class _RegisterState extends State<Register> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image(
-                    image: const AssetImage('assets/image/Logo.png'),
+                    image: const AssetImage(ImageAssets.logoImage),
                     height: height / 29.480,
                     width: width / 2.805),
                 SizedBox(
@@ -94,7 +74,6 @@ class _RegisterState extends State<Register> {
                 ),
                 IntlPhoneField(
                   textInputAction: TextInputAction.next,
-                  controller: _phoneController,
                   disableLengthCheck: true,
                   decoration: InputDecoration(
                     hintText: 'Phone Number',
@@ -112,17 +91,21 @@ class _RegisterState extends State<Register> {
                       ),
                     ),
                   ),
-                  initialCountryCode: 'ps',
+                  initialCountryCode: 'SR',
+                  onCountryChanged: (Country code) {
+                    registerVM.mobileCodeController.value.text = code.dialCode;
+                  },
                   onChanged: (PhoneNumber phone) {
-                    // print(phone.completeNumber);
+                    registerVM.phoneController.value.text =
+                        phone.completeNumber.tr;
                   },
                 ),
                 SizedBox(
                   height: height / 51.590,
                 ),
-                TextFieldWidget(
+                const TextFieldWidget(
                   textInputAction: TextInputAction.send,
-                  nameController: _referralController,
+                  // nameController: registerVM.mobileCodeController.value,
                   hintText: 'Referral code (Optional)',
                 ),
                 SizedBox(
@@ -135,7 +118,7 @@ class _RegisterState extends State<Register> {
                   height: height / 34.393,
                 ),
                 ElevatedButtonWidget(
-                    onPressed: _register, text: 'Login/Sign up'),
+                    onPressed: registerVM.registerApi, text: 'Login/Sign up'),
                 SizedBox(
                   height: height / 24.278,
                 ),
@@ -162,7 +145,7 @@ class _RegisterState extends State<Register> {
                   onPressed: () {},
                   text: 'Continue with Google',
                   image: const Image(
-                    image: AssetImage('assets/image/image 32.png'),
+                    image: AssetImage(ImageAssets.googleImage),
                   ),
                 ),
                 SizedBox(
@@ -172,7 +155,7 @@ class _RegisterState extends State<Register> {
                   onPressed: () {},
                   text: 'Continue with Facebook',
                   image: const Image(
-                    image: AssetImage('assets/image/image 33.png'),
+                    image: AssetImage(ImageAssets.facebookImage),
                   ),
                 )
               ],

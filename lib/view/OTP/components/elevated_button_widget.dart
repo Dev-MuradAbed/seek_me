@@ -21,7 +21,7 @@ class ElevatedButtonWidget extends StatelessWidget {
         padding: EdgeInsets.all(
           height / 68.787,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFF5E17EB),
         side: const BorderSide(
             color: Color(
           0XFFE3E3E3,
@@ -37,7 +37,10 @@ class ElevatedButtonWidget extends StatelessWidget {
           horizontal: width / 3.192,
           vertical: height / 91.717,
         ),
-        child: Text(_text),
+        child: Text(
+          _text,
+          style: const TextStyle(color: Colors.white),
+        ),
       ),
     );
   }
