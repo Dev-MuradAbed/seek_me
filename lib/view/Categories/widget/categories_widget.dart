@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../index.dart';
+import '../section_of_categories.dart';
 
 class CategoriesWidget extends StatelessWidget {
   const CategoriesWidget({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class CategoriesWidget extends StatelessWidget {
           spacing: Get.width/17.851,
           children:List<Widget>.generate(10, (int index) => GestureDetector(
             onTap: (){
-
+Get.to(SectionOfCategories());
             },
             child: Container(
               width: Get.width/2.394,

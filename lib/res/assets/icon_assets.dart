@@ -5,5 +5,6 @@ class IconAssets {
   static const String documentIcon = 'assets/icons/Document.svg';
   static const String walletIcon = 'assets/icons/Wallet.svg';
   static const String profileIcon = 'assets/icons/Profile.svg';
+  static const String plusIcon = 'assets/icons/plus.svg';
 
 }
